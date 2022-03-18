@@ -13,22 +13,42 @@ body {
   justify-content: center; */
 }
 
-header {
+body header {
   padding: 1rem;
   display: flex;
+  height: 15%;
 }
 
-header img {
-  max-height: 15rem;
+body header img {
+  /* max-height: 15rem; */
+  /* max-width: 20rem; */
   margin: 0 auto;
+  width: 100%;
 }
 main {
   height: 65%;
-  width: 85%;
+  width: 95%;
   margin: 5px auto;
+  /* display: flex;
+  justify-content: center; */
+}
+section.panel {
+  min-height: 100%;
+  border: 1rem solid white;
+  font-size: 2rem;
+  text-align: center;
+  display: grid;
+  place-content: center;
+}
+section header {
+  width: 20rem;
+}
+section.panel.hidden {
+  display: none;
 }
 
 .board {
+  margin: 0 auto;
   padding: 1rem 1rem;
   height: 100%;
   display: grid;
@@ -65,7 +85,7 @@ main {
   position: absolute;
   height: 100%;
   width: 100%;
-
+  font-size: 2rem;
   display: grid;
   place-content: center;
   border-radius: 1rem;
@@ -75,7 +95,7 @@ main {
 }
 
 .front:hover {
-  box-shadow: 2px 2px 2px 2px lightsteelblue;
+  box-shadow: 2px 2px 2px 2px rgb(60, 60, 59);
 }
 
 .back {
@@ -87,31 +107,40 @@ main {
   transform: rotateY(180deg);
   transition: transform 0.5s;
 }
-/* 
-
-
-
-.front img {
-  /* place-content: center;
-  width: 100%;
-  height: 100%; */
-/* border-radius: 1rem; */
-/* }
-.front:hover {
-  box-shadow: 2px 2px 2px 2px lightsteelblue;
+.cta {
+  padding: 1rem;
+  font-weight: bold;
+  width: 20rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
-.back {
-  background: linear-gradient(steelblue, lightsteelblue);
-  transform: rotateY(180deg);
+@media (min-width: 550px) {
+  main {
+    width: 85%;
+  }
 }
-
-.card.flipped .content {
-  transform: rotateY(180deg);
-  transition: transform 0.5s;
-}  */
-@media (min-width: 1050px) {
+@media (min-width: 650px) {
+  main {
+    width: 75%;
+  }
+}
+@media (min-width: 750px) {
+  main {
+    width: 50%;
+  }
+}
+@media (min-width: 1000px) {
   main {
     width: 35%;
+  }
+  .back,
+  .front {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1400px) {
+  main {
+    width: 25%;
   }
 }
