@@ -1,5 +1,5 @@
 "use strict";
-import { renderBoard } from "./cards.js";
+import { renderBoard,tries, score } from "./cards.js";
 import {
   mapCards,
   addNoCheckedId,
@@ -14,9 +14,6 @@ const scorePanel = document.querySelector("footer");
 window.addEventListener("beforeunload", () => {});
 function showPanel(panel) {
   panel.classList.remove("hidden");
-}
-function showBoard() {
-  showPanel(board);
 }
 function hideAllPanel() {
   start.classList.add("hidden");
