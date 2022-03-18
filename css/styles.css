@@ -94,12 +94,19 @@ section.panel.hidden {
   transform-style: preserve-3d;
 }
 
+
+/* Añadido por Luna */
+.card:active {
+  transform: scale(0.90);
+  transition: transform ease 0.1s
+}
+
 .front:hover {
   box-shadow: 2px 2px 2px 2px rgb(60, 60, 59);
 }
 
 .back {
-  background: linear-gradient(steelblue, lightsteelblue);
+  background: linear-gradient(#6C7CFA, #cbd1fd);
   transform: rotateY(180deg);
 }
 
