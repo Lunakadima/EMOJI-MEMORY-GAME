@@ -16,6 +16,8 @@ export const State = {
     ? JSON.parse(localStorageNoCheckedCardId)
     : null,
   CardsDistribution: localStorageCards ? JSON.parse(localStorageCards) : [],
+  Score: localStorageScore ? JSON.parse(localStorageScore) : 0,
+  Tries: localStorageTries ? JSON.parse(localStorageTries) : 0,
 };
 
 const mapCards = (currentBoardDistribution) => {
@@ -24,11 +26,45 @@ const mapCards = (currentBoardDistribution) => {
 const addNoCheckedId = (id) => {
   State.NoCheckedCardId = id;
 };
-const clearMemory = () => {
-  State.GameInProgress = false;
-};
-const saveNewGame = () => {
+const setGameInProgress = () => {
   State.GameInProgress = true;
 };
+const clearData = () => {
+  State.GameInProgress = false;
+  State.Score = 0;
+  State.Tries = 0;
+  State.NoCheckedCardId = null;
+  State.CardsDistribution = [];
+};
+const addTry = () => {
+  State.Tries++;
+};
+const addScore = () => {
+  State.Score++;
+};
+const saveGame = () => {
+  window.localStorage.setItem(
+    "gameInProgress",
+    JSON.stringify(State.GameInProgress)
+  );
+  window.localStorage.setItem(
+    "noCheckedCardId",
+    JSON.stringify(State.NoCheckedCardId)
+  );
+  window.localStorage.setItem(
+    "currentCardsDistribution",
+    JSON.stringify(State.CardsDistribution)
+  );
+  window.localStorage.setItem("currentScore", JSON.stringify(State.Score));
+  window.localStorage.setItem("currentTries", JSON.stringify(State.Tries));
+};
 
-export { mapCards, addNoCheckedId, clearMemory, saveNewGame };
+export {
+  mapCards,
+  addNoCheckedId,
+  setGameInProgress,
+  clearData,
+  saveGame,
+  addTry,
+  addScore,
+};

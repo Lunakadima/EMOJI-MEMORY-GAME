@@ -1,11 +1,15 @@
 "use strict";
 import {
+  State,
   mapCards,
   addNoCheckedId,
-  clearMemory,
-  saveNewGame,
-  State,
+  setGameInProgress,
+  clearData,
+  saveGame,
+  addTry,
+  addScore,
 } from "./state.js";
+import { gameFinished } from "./main.js";
 
 export let score = 0;
 export let tries = 0;
@@ -57,6 +61,11 @@ function renderBoard() {
     );
     cardCounter++;
   }
+
+  score = State.Score;
+  tries = State.Tries;
+
+  setGameInProgress();
 }
 const clickCard = (e) => {
   const selectedCard = e.currentTarget;
@@ -75,9 +84,14 @@ const clickCard = (e) => {
     let id2 = flippedCardIds[1];
     console.log("Se han voletado dos cartas...");
     tries++;
-
+    addTry();
     if (getCardById(id1).textContent === getCardById(id2).textContent) {
+      score++;
+      addScore();
+      console.log("Las cartas son iguales", score, "/", tries);
     } else {
+      console.log("Las cartas son diferentes", score, "/", tries);
+
       setTimeout(() => {
         flipElement(getCardById(id1));
       }, 1000);
@@ -87,6 +101,17 @@ const clickCard = (e) => {
     }
     flippedCardIds.pop();
     flippedCardIds.pop();
+
+    if (score === 8) {
+      console.log("Enhorabuena has ganado!");
+      score = 0;
+      tries = 0;
+      clearData();
+      saveGame();
+      setTimeout(() => {
+        gameFinished();
+      }, 1000);
+    }
   }
 };
 function alreadySelectedCard(id) {
@@ -99,6 +124,24 @@ function getCardById(id) {
     return c.getAttribute("id") == id;
   });
 }
+function isFlipped(element) {
+  return [...element.classList].some((c) => {
+    return c === "flipped";
+  });
+}
+window.addEventListener("beforeunload", () => {
+  //Si solo se volteo una carta y esta pendiente de verificar....
+  flippedCardIds[0] ? addNoCheckedId(flippedCardIds[0]) : addNoCheckedId(null);
+  const cardsForMap = [];
+  //Mapeamos los emojis y si la carta estaba volteada
+  for (const card of cards) {
+    cardsForMap.push({ Emoji: card.textContent, Flipped: isFlipped(card) });
+  }
+  mapCards(cardsForMap);
+  //Guardamos la partida
+  saveGame();
+});
+
 cards.forEach((element) => {
   element.addEventListener("click", clickCard);
 });
