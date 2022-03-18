@@ -1,17 +1,12 @@
 "use strict";
-import { renderBoard,tries, score } from "./cards.js";
-import {
-  mapCards,
-  addNoCheckedId,
-  clearMemory,
-  saveNewGame,
-  State,
-} from "./state.js";
+import { renderBoard, tries } from "./cards.js";
+import { State } from "./state.js";
 
 const start = document.querySelector(".start");
 const board = document.querySelector(".board");
+const end = document.querySelector(".end");
 const scorePanel = document.querySelector("footer");
-window.addEventListener("beforeunload", () => {});
+
 function showPanel(panel) {
   panel.classList.remove("hidden");
 }
@@ -32,8 +27,16 @@ function main() {
       renderBoard();
     });
   } else {
+    hideAllPanel();
+    showPanel(board);
     renderBoard();
   }
 }
+function gameFinished() {
+  hideAllPanel();
+  showPanel(end);
+}
 
 main();
+
+export { gameFinished };
