@@ -147,7 +147,7 @@ input {
   backface-visibility: hidden;
   user-select: none;
   transform-style: preserve-3d;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .card:active {
