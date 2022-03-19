@@ -5,6 +5,7 @@
 }
 
 body {
+  background: url("/assets/fondo.png") center;
   height: 100vh;
   font-family: "Montserrat", sans-serif;
   display: flex;
@@ -22,9 +23,11 @@ body header {
 body header img {
   /* max-height: 15rem; */
   /* max-width: 20rem; */
+  padding-top: 2rem;
   margin: 0 auto;
   width: 100%;
 }
+
 main {
   height: 65%;
   width: 100%;
@@ -32,22 +35,33 @@ main {
   /* display: flex;
   justify-content: center; */
 }
+
 section.panel {
   min-height: 100%;
-  border: 1rem solid white;
+  /* border: 1rem solid white; */
   font-size: 2rem;
   text-align: center;
   display: grid;
   place-content: center;
+  color: white;
 }
+
 section header {
   width: 25rem;
 }
+
 section.panel.hidden {
   display: none;
 }
+
 footer.hidden {
   display: none;
+}
+
+footer {
+  color: white;
+  text-align: center;
+  font-weight: bold;
 }
 
 .board {
@@ -60,6 +74,7 @@ footer.hidden {
   justify-items: stretch;
   align-items: stretch;
   gap: 1rem;
+  cursor: pointer;
 }
 
 .card {
@@ -96,8 +111,6 @@ footer.hidden {
   transform-style: preserve-3d;
 }
 
-
-/* Añadido por Luna */
 .card:active {
   transform: scale(0.90);
   transition: transform ease 0.1s
@@ -108,21 +121,34 @@ footer.hidden {
 }
 
 .back {
-  background: linear-gradient(#6C7CFA, #cbd1fd);
+  background: linear-gradient(#6f81fa, #d55582);
   transform: rotateY(180deg);
+  font-size: 50px;
 }
 
 .card.flipped .content {
   transform: rotateY(180deg);
   transition: transform 0.5s;
 }
+
+input {
+  width: 15rem;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+  text-transform: uppercase;
+  justify-self: center;
+}
+
 .cta {
   padding: 1rem;
   font-weight: bold;
-  width: 25rem;
+  width: 8rem;
   font-size: 1.5rem;
   text-transform: uppercase;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  border-radius: 15px;
+  justify-self: center;
 }
 
 @media (min-width: 550px) {
