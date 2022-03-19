@@ -8,9 +8,11 @@ const end = document.querySelector(".end");
 const scorePanel = document.querySelector("footer");
 const inputName = document.querySelector("input");
 
+//Funcion que muestra cualquier elemento del html
 function showPanel(panel) {
   panel.classList.remove("hidden");
 }
+//Función que oculta todos las section panel del html
 function hideAllPanel() {
   start.classList.add("hidden");
   board.classList.add("hidden");
@@ -47,12 +49,7 @@ function main() {
 function gameFinished() {
   //Ocultamos los paneles y mostramos el marcador final
   hideAllPanel();
-  end.querySelector("p").textContent = "Intentos totales: ";
   showPanel(end);
-  const endBtn = end.querySelector("button");
-  endBtn.addEventListener("click", (e) => {
-    main();
-  });
 }
 
 main();
