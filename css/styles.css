@@ -5,7 +5,8 @@
 }
 
 body {
-  background: url("/assets/fondo.png") center;
+  background: url("/assets/fondo-arcade.png") no-repeat center center fixed;
+  background-size: cover;
   height: 100vh;
   font-family: "Montserrat", sans-serif;
   display: flex;
@@ -14,42 +15,34 @@ body {
   justify-content: center; */
 }
 
-body header {
-  padding: 1rem;
+/* CABECERA */
+.title {
+  margin: 1rem;
   display: flex;
   height: 15%;
+  background: url("/assets/LOGO MG.svg") no-repeat center;
 }
 
-body header img {
-  /* max-height: 15rem; */
-  /* max-width: 20rem; */
+.title img {
   padding-top: 2rem;
   margin: 0 auto;
-  width: 100%;
+  width: auto;
 }
-
+/* PANELES */
 main {
   height: 65%;
   width: 100%;
   margin: 5px auto;
-  /* display: flex;
-  justify-content: center; */
 }
 
 section.panel {
   min-height: 100%;
-  /* border: 1rem solid white; */
   font-size: 2rem;
   text-align: center;
   display: grid;
   place-content: center;
   color: white;
 }
-
-section header {
-  width: 25rem;
-}
-
 section.panel.hidden {
   display: none;
 }
@@ -59,11 +52,56 @@ footer.hidden {
 }
 
 footer {
+  margin-top: 1rem;
+  display: flex;
+  margin: 0 auto;
+}
+footer section p {
+  font-size: 2rem;
   color: white;
+  font-weight: bold;
+  margin: 5px auto;
+  text-shadow: 2px 2px 2px 2px #6f81fa;
+}
+
+/* PANEL DE INICIO */
+.start p {
+  margin-top: 4rem;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0 1rem;
+}
+.start header h3 {
+  font-size: 1.5rem;
+  padding: 0 10px;
+}
+input {
+  width: 15rem;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 15px;
+  text-transform: uppercase;
+  justify-self: center;
   text-align: center;
+  font-size: 1rem;
   font-weight: bold;
 }
 
+.cta {
+  margin-top: 3rem;
+  padding: 1rem;
+  font-weight: bold;
+  width: 10rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  border-radius: 15px;
+  justify-self: center;
+  border: 2px solid black;
+  color: white;
+  background: linear-gradient(#6f81fa, #d55582);
+}
+
+/* PANEL DE CARTAS */
 .board {
   margin: 0 auto;
   padding: 1rem 1rem;
@@ -74,7 +112,7 @@ footer {
   justify-items: stretch;
   align-items: stretch;
   gap: 1rem;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .card {
@@ -109,11 +147,12 @@ footer {
   backface-visibility: hidden;
   user-select: none;
   transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .card:active {
-  transform: scale(0.90);
-  transition: transform ease 0.1s
+  transform: scale(0.9);
+  transition: transform ease 0.1s;
 }
 
 .front:hover {
@@ -123,7 +162,7 @@ footer {
 .back {
   background: linear-gradient(#6f81fa, #d55582);
   transform: rotateY(180deg);
-  font-size: 50px;
+  /* font-size: 50px; */
 }
 
 .card.flipped .content {
@@ -131,26 +170,16 @@ footer {
   transition: transform 0.5s;
 }
 
-input {
-  width: 15rem;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 15px;
-  text-transform: uppercase;
-  justify-self: center;
+/*PANEL FINAL*/
+section.panel.end {
+  place-content: flex-start;
 }
-
-.cta {
-  padding: 1rem;
-  font-weight: bold;
-  width: 8rem;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  /* margin: 0 auto; */
-  border-radius: 15px;
-  justify-self: center;
+section.panel.end h3 {
+  margin-top: 2rem;
 }
-
+section.panel.end p {
+  margin-top: 0.5rem;
+}
 @media (min-width: 550px) {
   main {
     width: 85%;

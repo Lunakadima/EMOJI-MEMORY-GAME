@@ -7,6 +7,7 @@ const localStorageNoCheckedCardId =
   window.localStorage.getItem("noCheckedCardId");
 const localStorageScore = window.localStorage.getItem("currentScore");
 const localStorageTries = window.localStorage.getItem("currentTries");
+const localStoragePlayer = window.localStorage.getItem("currentPlayer");
 
 export const State = {
   GameInProgress: localStorageGameInProgress
@@ -18,6 +19,7 @@ export const State = {
   CardsDistribution: localStorageCards ? JSON.parse(localStorageCards) : [],
   Score: localStorageScore ? JSON.parse(localStorageScore) : 0,
   Tries: localStorageTries ? JSON.parse(localStorageTries) : 0,
+  Player: localStoragePlayer ? JSON.parse(localStoragePlayer) : 0,
 };
 
 const mapCards = (currentBoardDistribution) => {
@@ -42,6 +44,9 @@ const addTry = () => {
 const addScore = () => {
   State.Score++;
 };
+const addPlayer = (playerName) => {
+  State.Player = playerName;
+};
 const saveGame = () => {
   window.localStorage.setItem(
     "gameInProgress",
@@ -57,6 +62,7 @@ const saveGame = () => {
   );
   window.localStorage.setItem("currentScore", JSON.stringify(State.Score));
   window.localStorage.setItem("currentTries", JSON.stringify(State.Tries));
+  window.localStorage.setItem("currentPlayer", JSON.stringify(State.Player));
 };
 
 export {
@@ -67,4 +73,5 @@ export {
   saveGame,
   addTry,
   addScore,
+  addPlayer,
 };
