@@ -172,9 +172,10 @@ input {
 
 /*PANEL FINAL*/
 section.panel.end {
-  place-content: flex-start;
+  align-content: flex-start;
+  justify-content: center;
 }
-section.panel.end h3 {
+section.panel.end h4 {
   margin-top: 2rem;
 }
 section.panel.end p {
