@@ -129,10 +129,13 @@ input {
   transition: transform 1s;
   transform-style: preserve-3d;
 }
-
+.content {
+  background-color: rgb(60, 60, 59);
+  border-radius: 1rem;
+}
 .front {
   background: url("/assets/RECURSO\ CARTAS.svg") no-repeat center center;
-  background-size: cover;
+  background-size: fixed;
 }
 
 .front,
@@ -207,6 +210,10 @@ section.panel.end p {
   }
   .back,
   .front {
+    font-size: 3rem;
+  }
+  .player,
+  .tries {
     font-size: 3rem;
   }
 }

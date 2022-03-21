@@ -19,7 +19,7 @@ export const State = {
   CardsDistribution: localStorageCards ? JSON.parse(localStorageCards) : [],
   Score: localStorageScore ? JSON.parse(localStorageScore) : 0,
   Tries: localStorageTries ? JSON.parse(localStorageTries) : 0,
-  Player: localStoragePlayer ? JSON.parse(localStoragePlayer) : 0,
+  Player: localStoragePlayer ? JSON.parse(localStoragePlayer) : "",
 };
 
 const mapCards = (currentBoardDistribution) => {
@@ -37,6 +37,7 @@ const clearData = () => {
   State.Tries = 0;
   State.NoCheckedCardId = null;
   State.CardsDistribution = [];
+  State.Player = "";
 };
 const addTry = () => {
   State.Tries++;

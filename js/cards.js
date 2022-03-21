@@ -63,7 +63,7 @@ function renderBoard() {
       State.GameInProgress
         ? savedCards[cardCounter].Emoji
         : emojis[cardCounter],
-      State.GameInProgress ? savedCards[cardCounter].Flipped : false
+      State.GameInProgress ? savedCards[cardCounter].Flipped : isFlipped(card)
     );
     cardCounter++;
   }
@@ -79,6 +79,7 @@ function renderBoard() {
 const clickCard = (e) => {
   const selectedCard = e.currentTarget;
   let id = selectedCard.getAttribute("id");
+
   if (alreadySelectedCard(id)) {
     console.log("Ya se había volteado esa carta");
     return;
@@ -86,7 +87,6 @@ const clickCard = (e) => {
   //Añadimos el id al array de ids
   flippedCardIds.push(id);
   flipElement(selectedCard);
-
   //Si se han volteado dos cartas...
   if (flippedCardIds.length === 2) {
     let id1 = flippedCardIds[0];
@@ -111,6 +111,7 @@ const clickCard = (e) => {
     flippedCardIds.pop();
     flippedCardIds.pop();
     labelTries.textContent = "Intentos: " + State.Tries;
+
     if (score === 8) {
       console.log("Enhorabuena, has ganado!");
       clearData();
