@@ -215,9 +215,9 @@ section.panel.end p {
     width: 30%;
   }
 }
-@media (min-height: 1500px) and (min-width: 2400px) {
+@media (min-height: 2000px) and (min-width: 1000px) {
   main {
-    width: 50%;
+    width: 75%;
   }
   .back,
   .front {
