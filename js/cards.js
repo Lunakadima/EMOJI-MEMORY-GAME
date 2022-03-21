@@ -112,11 +112,11 @@ const clickCard = (e) => {
     flippedCardIds.pop();
     labelTries.textContent = "Intentos: " + State.Tries;
     if (score === 8) {
-      console.log("Enhorabuena has ganado!");
+      console.log("Enhorabuena, has ganado!");
       clearData();
       saveGame();
       setTimeout(() => {
-        gameFinished();
+        gameFinished(tries);
       }, 1000);
     }
   }

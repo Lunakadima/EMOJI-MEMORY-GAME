@@ -46,10 +46,16 @@ function main() {
   }
 }
 //Función para indicar que la partida acabo
-function gameFinished() {
+function gameFinished(tries) {
   //Ocultamos los paneles y mostramos el marcador final
   hideAllPanel();
+  const labelTries = end.querySelector ("p");
+  labelTries.textContent = "Intentos totales: "+ tries;
   showPanel(end);
+  const endButton = end.querySelector ("button");
+  endButton.addEventListener ("click", (e) => {
+  main ();
+  });
 }
 
 main();
