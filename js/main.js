@@ -15,6 +15,10 @@ startBtn.addEventListener("click", (e) => {
     alert("Introduce tu nombre para empezar");
     return;
   }
+  if (inputName.value.length > 10) {
+    alert("El nombre no puede exceder los 10 caracteres");
+    return;
+  }
   addPlayer(inputName.value);
   // ocultar todos los paneles
   hideAllPanel();
