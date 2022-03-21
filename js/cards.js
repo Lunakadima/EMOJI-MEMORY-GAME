@@ -52,6 +52,7 @@ function renderBoard() {
   let cardCounter = 0;
   const savedCards = State.CardsDistribution;
   const emojis = getRandomEmojiCards();
+
   //Si había partida y quedo una sola carta volteada, recogemos su id
   if (State.GameInProgress && State.NoCheckedCardId) {
     flippedCardIds[0] = State.NoCheckedCardId;

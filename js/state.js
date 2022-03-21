@@ -46,7 +46,7 @@ const addScore = () => {
   State.Score++;
 };
 const addPlayer = (playerName) => {
-  State.Player = playerName;
+  State.Player = playerName.toUpperCase();
 };
 const saveGame = () => {
   window.localStorage.setItem(
