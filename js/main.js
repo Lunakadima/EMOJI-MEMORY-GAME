@@ -17,6 +17,7 @@ startBtn.addEventListener("click", (e) => {
   }
   if (inputName.value.length > 10) {
     alert("El nombre no puede exceder los 10 caracteres");
+    inputName.value = "";
     return;
   }
   addPlayer(inputName.value);

@@ -32,8 +32,8 @@ const setGameInProgress = () => {
   State.GameInProgress = true;
 };
 const clearData = () => {
-  State.GameInProgress = false;
   State.Score = 0;
+  State.GameInProgress = false;
   State.Tries = 0;
   State.NoCheckedCardId = null;
   State.CardsDistribution = [];
