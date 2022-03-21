@@ -215,3 +215,12 @@ section.panel.end p {
     width: 30%;
   }
 }
+@media (min-height: 1500px) and (min-width: 2400px) {
+  main {
+    width: 50%;
+  }
+  .back,
+  .front {
+    font-size: 5rem;
+  }
+}
