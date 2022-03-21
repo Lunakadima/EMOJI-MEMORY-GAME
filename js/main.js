@@ -62,5 +62,5 @@ function gameFinished(tries) {
 }
 
 // State.GameInProgress = false;
-gameFinished(8);
+main();
 export { gameFinished };
