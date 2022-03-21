@@ -32,6 +32,7 @@ startBtn.addEventListener("click", (e) => {
 endButton.addEventListener("click", (e) => {
   //Ocultamos los paneles y mostramos el marcador final
   hideAllPanel();
+  inputName.value = "";
   showPanel(start);
 });
 //Funcion que muestra cualquier elemento del html
@@ -51,7 +52,6 @@ function main() {
   hideAllPanel();
   //Si ya había una partida en curso...
   if (!State.GameInProgress) {
-    inputName.value = "";
     showPanel(start);
   } else {
     renderBoard();
