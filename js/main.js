@@ -30,7 +30,9 @@ startBtn.addEventListener("click", (e) => {
 });
 
 endButton.addEventListener("click", (e) => {
-  main();
+  //Ocultamos los paneles y mostramos el marcador final
+  hideAllPanel();
+  showPanel(start);
 });
 //Funcion que muestra cualquier elemento del html
 function showPanel(panel) {

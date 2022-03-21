@@ -38,6 +38,7 @@ const clearData = () => {
   State.NoCheckedCardId = null;
   State.CardsDistribution = [];
   State.Player = "";
+  saveGame();
 };
 const addTry = () => {
   State.Tries++;
