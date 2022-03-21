@@ -178,8 +178,9 @@ section.panel.end {
   align-content: flex-start;
   justify-content: center;
 }
-section.panel.end h4 {
+section.panel.end header h4 {
   margin-top: 2rem;
+  font-size: 2rem;
 }
 section.panel.end p {
   margin-top: 0.5rem;
