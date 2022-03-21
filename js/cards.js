@@ -13,7 +13,7 @@ import { gameFinished } from "./main.js";
 
 let score = 0;
 let tries = 0;
-const emojiCards = ["👩‍💻", "👻", "🙈", "🔑", "🤌🏼", "🎵", "🍕", "🦜"];
+const emojiCards = ["🎮", "🛸", "👾", "🛹", "🛼", "🤖", "📟", "🕹"];
 const flippedCardIds = [];
 const board = document.querySelector(".board");
 const cards = board.querySelectorAll(".card");
