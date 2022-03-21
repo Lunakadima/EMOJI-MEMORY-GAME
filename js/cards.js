@@ -115,7 +115,6 @@ const clickCard = (e) => {
 
     if (score === 8) {
       console.log("Enhorabuena, has ganado!");
-      clearData();
       saveGame();
       setTimeout(() => {
         gameFinished(tries);
