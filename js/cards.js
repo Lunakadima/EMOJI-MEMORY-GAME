@@ -13,8 +13,8 @@ import { gameFinished } from "./main.js";
 
 let score = 0;
 let tries = 0;
-const emojiCards = ["🎮", "🛸", "📼", "🛹", "🛼", "🤖", "📟", "🕹"];
-const flippedCardIds = [];
+const emojiCards = ["🎮", "🛸", "📼", "🛹", "🛼", "🤖", "📟", "🕹"]; //Array de emojis
+const flippedCardIds = []; //Array auxiliar donde guardamos los ids de las cartas seleccionadas
 const board = document.querySelector(".board");
 const cards = board.querySelectorAll(".card");
 const labelPlayer = document.querySelector(".player");
@@ -34,7 +34,7 @@ function duplicate(array) {
 function getRandomEmojiCards() {
   return duplicate(emojiCards).sort(() => 0.5 - Math.random());
 }
-//Función que dibuja un emoji en el reverso de una carta
+//Función que dibuja un emoji en el reverso (back) de una carta
 function drawEmojis(card, emoji, Flip) {
   const back = card.querySelector(".back");
   back.textContent = emoji;
@@ -113,6 +113,7 @@ const clickCard = (e) => {
     flippedCardIds.pop();
     labelTries.textContent = "Intentos: " + State.Tries;
 
+    //Si se hicieron las 8 parejas...
     if (score === 8) {
       console.log("Enhorabuena, has ganado!");
       clearData();
@@ -134,7 +135,7 @@ function getCardById(id) {
     return c.getAttribute("id") == id;
   });
 }
-//Función que indica si un elemento estaba volteado o no
+//Función que indica si un elemento estaba volteado (aplica clase flipped) o no
 function isFlipped(element) {
   return [...element.classList].some((c) => {
     return c === "flipped";

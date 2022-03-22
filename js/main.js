@@ -23,18 +23,20 @@ startBtn.addEventListener("click", (e) => {
   addPlayer(inputName.value);
   // ocultar todos los paneles
   hideAllPanel();
-  // llamo funcion que visualiza panel central
+  // renderizamos mesa y mostramos las cartas y el panel de puntuacion
   renderBoard();
   showPanel(board);
   showPanel(scorePanel);
 });
 
 endButton.addEventListener("click", (e) => {
-  //Ocultamos los paneles y mostramos el marcador final
   hideAllPanel();
+  //Limpiamos el input del nombre del jugador
   inputName.value = "";
+  //Mostramos panel inicio
   showPanel(start);
 });
+
 //Funcion que muestra cualquier elemento del html
 function showPanel(panel) {
   panel.classList.remove("hidden");
@@ -59,7 +61,9 @@ function main() {
     showPanel(scorePanel);
   }
 }
-//Función para indicar que la partida acabo
+//Función para indicar que la partida acabo se le
+//pasa como parámetros el número total de intentos
+//y los visualiza
 function gameFinished(tries) {
   //Ocultamos los paneles y mostramos el marcador final
   hideAllPanel();
@@ -68,6 +72,5 @@ function gameFinished(tries) {
   showPanel(end);
 }
 
-// State.GameInProgress = false;
 main();
 export { gameFinished };

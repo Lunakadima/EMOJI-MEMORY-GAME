@@ -1,3 +1,11 @@
+/**
+ * ####################
+ * ##  LocalStorage  ##
+ * ####################
+ *
+ * Obtendremos los datos de una partida en curso sin finalizar
+ *
+ */
 const localStorageGameInProgress =
   window.localStorage.getItem("gameInProgress");
 const localStorageCards = window.localStorage.getItem(
@@ -31,6 +39,7 @@ const addNoCheckedId = (id) => {
 const setGameInProgress = () => {
   State.GameInProgress = true;
 };
+//Limpiamos los datos y guardamos el juego
 const clearData = () => {
   State.Score = 0;
   State.GameInProgress = false;
@@ -40,15 +49,20 @@ const clearData = () => {
   State.Player = "";
   saveGame();
 };
+//Incrementamos los intentos
 const addTry = () => {
   State.Tries++;
 };
+//Incrementamos el numero de parejas encontradas
 const addScore = () => {
   State.Score++;
 };
+//Guardamos el nombre del jugador
 const addPlayer = (playerName) => {
   State.Player = playerName.toUpperCase();
 };
+
+//Guardamos en LS todos los cambios
 const saveGame = () => {
   window.localStorage.setItem(
     "gameInProgress",
